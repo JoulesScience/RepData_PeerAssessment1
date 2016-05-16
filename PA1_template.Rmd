@@ -1,8 +1,4 @@
-
 Reproducible Research Course Project 1
-
-output: 
-  html_document:
 
 Load the data:
 
@@ -92,7 +88,7 @@ This shows that the overall shape of the distribution has not changed after appl
 Are there differences in activity patterns between weekdays and weekends?
 Ans:
 
-Code to Create a new factor variable in the dataset with two levels - “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+Code to Create a new factor variable in the dataset with two levels - ???weekday??? and ???weekend??? indicating whether a given date is a weekday or weekend day.
 
 ```{r}
 weekDayEnd <- data.frame("dayType"=character(0))
@@ -128,4 +124,56 @@ ggplot(averageWeekDayEnd,aes(interval,steps, color=dayType))+geom_line()+facet_g
 
 
 Reference:  https://rpubs.com/skycrater/180134
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
