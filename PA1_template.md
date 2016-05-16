@@ -4,19 +4,19 @@ Load the data:
 
 
 ```r
-setwd('D:/Data')
+setwd('D:/data')
 data <- read.csv('activity.csv')
 ```
+
 Process the data (removing NAs):
 
 
 ```r
 data1 <- data[complete.cases(data), ]
 ```
-
 What is mean total number of steps taken per day?
 
-1. Calculate the total number of steps taken per day and make a histogram:
+Calculate the total number of steps taken per day and make a histogram:
 
 
 ```r
@@ -33,15 +33,14 @@ ggplot(data1, aes(as.factor(date),steps))+geom_bar(fill="red", stat="identity")+
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
-2. Calculate and report the mean and median of the total number of steps taken per day:
+Calculate and report the mean and median of the total number of steps taken per day:
 
 
 ```r
 meanFreq <- as.integer(mean(aggregate(steps~date,data1, FUN=sum)$steps))
 medianFreq <- median(aggregate(steps~date,data1, FUN=sum)$steps)
 ```
-
-Mean and median of the total number of steps taken per day are 10766 steps and 10765 steps, respectively.
+Mean and median of the total number of steps taken per day are r meanFreq steps and r medianFreq steps, respectively.
 
 What is the average daily activity pattern?
 
@@ -53,7 +52,6 @@ plot(data2$steps ~ data2$interval, type="l", xlab="Date", ylab="Average Steps pe
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
-
 Code to look for the maximum number of steps:
 
 
@@ -61,6 +59,7 @@ Code to look for the maximum number of steps:
 maxSteps <- data2[data2$steps==max(data2$steps), ]
 data2 <- NULL
 ```
+
 The 5-minute interval 835, on average across all the days in the dataset, contains the maximum number of steps 206.1698113.
 
 Imputing missing values
@@ -108,10 +107,9 @@ The new median of the imputed data is 10766 steps compared to the old median of 
 
 This shows that the overall shape of the distribution has not changed after applying the method in imputing the data.
 
-Are there differences in activity patterns between weekdays and weekends?
-Ans:
+Are there differences in activity patterns between weekdays and weekends? Ans:
 
-Code to Create a new factor variable in the dataset with two levels - ???weekday??? and ???weekend??? indicating whether a given date is a weekday or weekend day.
+Code to Create a new factor variable in the dataset with two levels - 'weekday' and 'weekend' indicating whether a given date is a weekday or weekend day.
 
 
 ```r
@@ -148,10 +146,36 @@ ggplot(averageWeekDayEnd,aes(interval,steps, color=dayType))+geom_line()+facet_g
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+Reference: https://rpubs.com/skycrater/180134
 
-rmarkdown::render(PA1_tempalte.Rmd, clean=FALSE)
 
-Reference:  https://rpubs.com/skycrater/180134
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
